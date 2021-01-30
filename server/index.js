@@ -13,6 +13,10 @@ const db = mysql.createPool({
 app.use(bodyParser.urlencoded({extended: true}))
 
 app.post('/api/insert', (req,res) => {
+
+    const movieName = req.body.movieName
+    const movieReview = req.body.movieReview
+
     const sqlInsert = "INSERT INTO `movie_review` (`movieName`, `movieReview`) VALUES (?,?)"
     db.query(sqlInsert, [movieName, movieReview], (err,result) => {
 
