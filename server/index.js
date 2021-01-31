@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 // I cant insert the data in mysql workbench table
 app.get('/api/get', (req,res) => {
     const sqlSelect = "SELECT * FROM movie_review";
-    db.query(sqlInsert, [movieName, movieReview], (err,result) => {
+    db.query(sqlSelect, (err,result) => {
         console.log(result);
     });
 });
