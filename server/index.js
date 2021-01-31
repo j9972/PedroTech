@@ -15,6 +15,14 @@ app.use(cors());
 app.use(express.json());
 app.use(bodyParser.urlencoded({extended: true}));
 
+// I cant insert the data in mysql workbench table
+app.get('/api/get', (req,res) => {
+    const sqlSelect = "SELECT * FROM movie_review";
+    db.query(sqlInsert, [movieName, movieReview], (err,result) => {
+        console.log(result);
+    });
+});
+
 app.post('/api/insert', (req,res) => {
 
     const movieName = req.body.movieName;
@@ -22,8 +30,8 @@ app.post('/api/insert', (req,res) => {
 
     const sqlInsert = "INSERT INTO `movie_review` (`movieName`, `movieReview`) VALUES (?,?)"
     db.query(sqlInsert, [movieName, movieReview], (err,result) => {
-        console.log(err);
-    })
+        console.log(result);
+    });
 });
 
 /*
