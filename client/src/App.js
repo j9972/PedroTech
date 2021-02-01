@@ -40,7 +40,7 @@ function App() {
 
         <button onClick={submitReview}>Submit</button>
 
-        /* val은 movieReviewList의 each item들이다 */
+        
         {movieReviewList.map((val) => {
           return <h1>MovieName: {val.movieName} | Movie Review: {val.movieReview}</h1>
         })}
