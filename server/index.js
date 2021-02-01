@@ -19,7 +19,7 @@ app.use(bodyParser.urlencoded({extended: true}));
 app.get('/api/get', (req,res) => {
     const sqlSelect = "SELECT * FROM movie_review";
     db.query(sqlSelect, (err,result) => {
-        console.log(result);
+        res.send(result);
     });
 });
 
