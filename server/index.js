@@ -49,17 +49,6 @@ app.get('/' , (req,res) => {
 })
 */
 
-app.post('/api/delete', (req,res) => {
-
-    const movieName = req.body.movieName;
-    const movieReview = req.body.movieReview;
-
-    const sqlInsert = "INSERT INTO `movie_review` (`movieName`, `movieReview`) VALUES (?,?)"
-    db.query(sqlInsert, [movieName, movieReview], (err,result) => {
-        console.log(result);
-    });
-});
-
 app.listen(3001, () => {
 	console.log('running on port 3001');
 });  
